@@ -8,7 +8,7 @@ def append_pdf(dirname):
     res = ''
     for fname in os.listdir(dirname):
         if '.pdf' in fname:
-            if not os.path.isfile(os.path.join(dirname, fname)):
+            if not os.path.isfile(os.path.join(dirname, 'thumbnail.jpg')):
                 subprocess.call("convert -density 150 {0}/{1}\[0\] {0}/thumbnail.jpg".format(dirname, fname), shell=True)
             res+= '\n<a href="../presentations/{}/main.pdf" target=" blank">'.format(dirname)
             res+= '\n<img src="../presentations/{}/thumbnail.jpg" alt="" class="img-thumbnail" style="width:280px;height:185px" />\n'.format(dirname)
