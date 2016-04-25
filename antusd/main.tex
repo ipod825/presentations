@@ -1,0 +1,114 @@
+\documentclass[compress]{beamer}
+
+% \mode<presentation>{
+\usetheme{Singapore}
+\usecolortheme{rose}
+% }
+% \pgfplotsset{/pgf/number format/use comma,compat=newest}
+% \usepackage{color}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{CJKutf8}
+% \usepackage{hyperref}
+% \usepackage{tikz}
+
+\title{ANTUSD: A Large Chinese Sentiment Dictionary }
+\author{Shih-Ming Wang and Lun-Wei Ku}
+\institute{NLPLab, Institute of Information Science, Academia Sinica}
+% \date{\today}
+\date{May 25, 2016}
+\subject{Computer Science}
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+\section{Motivation}
+    \begin{frame}{\secname}
+        \begin{itemize}
+            \item Sentiment dictionary
+            \begin{itemize}
+                \item A building block of sentiment analysis \& opinion mining
+                % \item A useful resource for both research and industrial communities
+                \item Applied as markers or machine learning features
+            \end{itemize}
+            \item Augmented NTU\footnote{The original authors of NTUSD were researchers at National Taiwan University} Sentiment Dictionary (ANTUSD)
+            \begin{itemize}
+                \item Lack of Chinese resource
+                \item Big \& complete
+                \item Expert labeled sentiment \& machine predicted sentiment scores
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+
+\begin{CJK*}{UTF8}{bsmi}
+\section{Related Work}
+    \subsection{Corpora Resource}
+        \begin{frame}{\subsecname\ I}
+            \begin{itemize}
+                \item Words and labels were collected from several sentiment corpora (2006$\sim$2010)
+                \item Word-base, context free
+                \begin{itemize}
+                    \item NTUSD
+                        \begin{itemize}
+                            \item A widely used Chinese sentiment dictionary
+                            \item Labels: \textbf{POS} and \textbf{NEG} (2812/8276) 
+                        \end{itemize}
+                    \item ACIBiMA\footnote{Advanced Chinese Bi-Character Word Morphological Analyzer}
+                        \begin{itemize}
+                            \item Built to test Chinese morphological structure and sentiment
+                            \item Labels: \textbf{POS}, \textbf{NEU}, \textbf{NEG}, \textbf{NONOP}, and \textbf{NOT}
+                            \item \textbf{NONOP} consists of regular non-emotion words
+                            \item \textbf{NOT} consists of incorrectly segmented words
+                        \end{itemize}
+                \end{itemize}
+            \end{itemize}
+        \end{frame}
+
+        \begin{frame}{\subsecname\ II}
+            \begin{itemize}
+                \item Sentence-based, context dependent
+                    \begin{itemize}
+                        \item NTCIR\footnote{http://research.nii.ac.jp/ntcir/index-en.html} MOAT Task Dataset 
+                            % A internation competition related to opinion analysis 
+                            \begin{itemize}
+                                \item Annotators labeled each sentences as \textbf{Positive}, \textbf{Neutral}, and \textbf{Neutral}
+                                \item Annotators also labeled sentiment words as they read sentences
+                                \item Label count for each word is it realted to its frequency
+                            \end{itemize}
+                        \item Chinese Opinion Treebank
+                            % Invented to incorporate the syntactic information, such as parsing trees into sentiment analysis
+                            \begin{itemize}
+                                \item The labeling process is similar to that of NTCIR
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+        \end{frame}
+        
+        \begin{frame}{\subsecname\ III}
+            \begin{itemize}
+                \item ANTUSD \& ACIBiMA has single gold label for each word
+                \item NTCIR \& Chinese Opinion Treebank has mutiple (possibly conflicting) labels for each word
+            \end{itemize}
+            
+        \end{frame}
+
+\section{Dictionary Schema}
+    \begin{frame}{\secname}
+        \begin{itemize}
+            \item ANTUSD \& ACIBiMA has single 
+        \end{itemize}
+        
+    \end{frame}
+\end{CJK*}
+
+\section{Demonstrative Experiment}
+
+
+\end{document}
