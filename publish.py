@@ -14,6 +14,8 @@ def append_pdf(dirname):
             res+= '\n<img src="../presentations/{}/thumbnail.jpg" alt="" class="img-thumbnail" style="width:280px;height:185px" />\n'.format(dirname)
             res+="</a>"
             return res
+
+    assert False, "Can not find pdf file in {}".format(dirname)
         
 if __name__ == "__main__":
     root = './'
@@ -33,7 +35,6 @@ if __name__ == "__main__":
 
     if count % 3 !=0:
         res+='</div>\n'
-
 
     with open('index.html', 'w') as f:
         f.write(res)
