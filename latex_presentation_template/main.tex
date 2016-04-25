@@ -1,0 +1,86 @@
+\documentclass[compress]{beamer}
+
+% \mode<presentation>{
+\usetheme{Singapore}
+\usecolortheme{rose}
+% }
+% \pgfplotsset{/pgf/number format/use comma,compat=newest}
+% \usepackage{color}
+\usepackage{amsmath,amsfonts,amssymb}
+% \usepackage{hyperref}
+% \usepackage{tikz}
+
+\title{Latex Presentation Template}
+\author{Shih-Ming Wang}
+\institute{NLPLab, Institute of Information Science, Academia Sinica}
+% \date{\today}
+\date{April 25, 2016}
+\subject{Computer Science}
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+\section{Section Usage}
+    \begin{frame}{\secname}
+        \begin{itemize}
+            \item Frame with section name as title
+        \end{itemize}
+    \end{frame} 
+    \subsection{Subsection usage}
+        \begin{frame}{\subsecname}
+            \begin{itemize}
+                \item Frame with subsection name as title
+            \end{itemize}
+        \end{frame} 
+    \subsection[Abbreviated Long Title]{A Very looooooooooooooooooooong Title}
+        \begin{frame}{\subsecname}
+            \begin{itemize}
+                \item You can have abbreviated title name in table of contents
+                \item Note that the title shown in this frame is different from that in toc
+            \end{itemize}
+        \end{frame} 
+\section{Frame Tricks}
+    \subsection{Vertical Spited Frame}
+        \begin{frame}{\subsecname}
+            \begin{columns}[T] % contents are top vertically aligned
+                \begin{column}[T]{.6\textwidth} % each column can also be its own environment
+                    \begin{itemize}
+                        \item Left column
+                    \end{itemize}
+                \end{column}
+                \begin{column}[T]{.4\textwidth} % alternative top-align that's better for graphics
+                    \begin{itemize}
+                        \item Right column
+                    \end{itemize}
+                \end{column}
+            \end{columns}
+        \end{frame}
+    \subsection{Automatic cont.}
+    \begin{frame}[allowframebreaks]{\subsecname}
+        \begin{itemize}
+            \item blabla$\cdots$
+            \item blabla$\cdots$
+            \item blabla$\cdots$
+            \item Break at whever you want
+        \end{itemize}
+        \framebreak
+        \begin{itemize}
+            \item blabla$\cdots$
+            \item Break again
+        \end{itemize}
+        \framebreak
+        \begin{itemize}
+            \item blabla$\cdots$
+            \item blabla$\cdots$
+        \end{itemize}
+    \end{frame}
+
+
+\end{document}
