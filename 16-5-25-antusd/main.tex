@@ -1,32 +1,65 @@
 \documentclass[compress]{beamer}
 
-% \mode<presentation>{
-\usetheme{Singapore}
-\usecolortheme{rose}
-% }
+\mode<presentation>{
+% \usetheme{Singapore}
+% \usecolortheme{rose}
+}
 % \pgfplotsset{/pgf/number format/use comma,compat=newest}
 % \usepackage{color}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{CJKutf8}
-% \usepackage{hyperref}
-% \usepackage{tikz}
+
+
+%%% Template Setting
+
+
+%% Font
+\usefonttheme[onlylarge]{structuresmallcapsserif}
+\usefonttheme[onlysmall]{structurebold}
+
+% Title page
+\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+% \setbeamercolor{title}{fg=red!80!black,bg=red!20!white}
+
+%% Align
+\setbeamertemplate{frametitle}[default][center] % left, center, right
+
+%% Footline
+\addtobeamertemplate{footline}{
+\includegraphics[width=\paperwidth]{footer}
+}
+
 
 \title{ANTUSD: A Large Chinese Sentiment Dictionary }
 \author{Shih-Ming Wang and Lun-Wei Ku}
-\institute{NLPLab, Institute of Information Science, Academia Sinica}
 % \date{\today}
-\date{May 25, 2016}
+% \date{May 25, 2016}
+\date[LREC 2016]{10th Language Resources and Evaluation Conference}
 \subject{Computer Science}
+
 \begin{document}
 \beamertemplatenavigationsymbolsempty
 
-\begin{frame}
-    \maketitle
-\end{frame}
 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cover}}%
+
+\begin{frame}{\secname}
+    \begin{columns}[T]
+        \begin{column}[T]{.3\textwidth}
+        \end{column}
+        \begin{column}[T]{.7\textwidth}
+            \vspace{.5cm}
+            \maketitle
+        \end{column}
+    \end{columns}
+\end{frame}
+}
+
+% \usebackgroundtemplate{\vbox to \paperheight \includegraphics[width=\paperwidth]{footer.jpg}}%
 \begin{frame}
     \frametitle{Outline}
-    \tableofcontents
+    \tableofcontents % [pausesections]
 \end{frame}
 \section{Motivation}
     \begin{frame}{\secname}
@@ -45,10 +78,27 @@
             \end{itemize}
         \end{itemize}
     \end{frame}
+\begin{frame}[fragile]
+\frametitle{An Algorithm For Finding Primes Numbers.}
+\begin{semiverbatim}
+\uncover<1->{\alert<0>{int main (void)}}
+\uncover<1->{\alert<0>{\{}}
+\uncover<1->{\alert<1>{  \alert<4>{std::}vector<bool> is_prime (100, true);}}
+\uncover<1->{\alert<1>{  for (int i = 2; i < 100; i++)}}
+\uncover<2->{\alert<2>{    if (is_prime[i])}}
+\uncover<2->{\alert<0>{      \{}}
+\uncover<3->{\alert<3>{        \alert<4>{std::}cout << i << " ";}}
+\uncover<3->{\alert<3>{        for (int j = i; j < 100;}}
+\uncover<3->{\alert<3>{             is_prime [j] = false, j+=i);}}
+\uncover<2->{\alert<0>{      \}}}
+\uncover<1->{\alert<0>{  return 0;}}
+\uncover<1->{\alert<0>{\}}}
+\end{semiverbatim}
+\visible<4->{Note the use of \alert{\texttt{std::}}.}
+\end{frame}
 
-
-\section{Related Work}
-    \subsection{Corpora Resource}
+\section{Corpus Building}
+    \subsection{Related Corpora}
         \begin{frame}{\subsecname\ I}
             \begin{itemize}
                 \item Words and labels were collected from several sentiment corpora (2006$\sim$2010)
@@ -292,5 +342,4 @@
             Q \& A
         \end{center}
     \end{frame}
-
 \end{document}
