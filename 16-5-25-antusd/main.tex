@@ -63,14 +63,14 @@
                     \item<2-> NTUSD
                         \begin{itemize}
                             \item<3-> A widely used Chinese sentiment dictionary
-                            \item<4-> Labels: \textbf{POS} and \textbf{NEG} (2812/8276) 
+                            \item<3-> Labels: \textbf{POS} and \textbf{NEG} (2812/8276) 
                         \end{itemize}
                     \item<2-> ACIBiMA
                         \begin{itemize}
-                            \item<3-> Built to test Chinese morphological structure and sentiment
+                            \item<4-> Chinese morphological structure on sentiment analysis
                             \item<4-> Labels: \textbf{POS}, \textbf{NEU}, \textbf{NEG}, \textbf{NONOP}, and \textbf{NOT}
-                            \item<4-> \textbf{NONOP} consists of regular non-emotion words
-                            \item<4-> \textbf{NOT} consists of incorrectly segmented words
+                            \item<5-> \textbf{NONOP} indicates a non-emotion words
+                            \item<5-> \textbf{NOT} indicates an incorrectly segmented word
                         \end{itemize}
                 \end{itemize}
             \end{block}
@@ -80,22 +80,22 @@
         \begin{frame}{\subsecname\ II}
             \begin{block}{Sentence-based, context dependent}
                 \begin{itemize}
-                    \item<1-> NTCIR Multilingual Opinion Analysis Test Dataset
+                    \item<1-> NTCIR Multilingual Opinion Analysis Test (MOAT) Dataset
                         \begin{itemize}
                             \item<2->  Dataset for international opinion analysis contest (6, 7 and 8th NTCIR)
                         \end{itemize}
 
                     \item<1-> Chinese Opinion Tree Bank
                         \begin{itemize}
-                            \item<2-> Incorporate syntactic information (Chinese Treebank)\\ into sentiment analysis
+                            \item<3-> Incorporate syntactic information (Chinese Treebank)\\ into sentiment analysis
                         \end{itemize}
                 \end{itemize}
             \end{block}
-            \begin{block}<3->{Properties}
+            \begin{block}<4->{Properties}
                 \begin{itemize}
-                    \item Label process:  sentence $\rightarrow$ sentiment words
-                    \item Each word might have conflicting labels
                     \item Labels: \textbf{POS}, \textbf{NEU}, and \textbf{NEG}
+                    \item Label process:  sentence $\rightarrow$ sentiment words
+                    \item Each word might belong to conflicting labels
                     \item Context information not included in ANTUSD
                     \note{item Label count $\propto$ word frequency}
                 \end{itemize}
