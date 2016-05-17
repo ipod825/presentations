@@ -69,7 +69,7 @@
                         \begin{itemize}
                             \item<4-> Chinese morphological structure on sentiment analysis
                             \item<4-> Labels: \textbf{POS}, \textbf{NEU}, \textbf{NEG}, \textbf{NONOP}, and \textbf{NOT}
-                            \item<5-> \textbf{NONOP} indicates a non-emotion words
+                            \item<5-> \textbf{NONOP} indicates a non-emotion word
                             \item<5-> \textbf{NOT} indicates an incorrectly segmented word
                         \end{itemize}
                 \end{itemize}
@@ -203,7 +203,7 @@
                         \item<1-> COP, SSI has lower precision
                             \begin{itemize}
                                 \item opinion extraction  is more semantic-oriented
-                                \item Many words contain single SSI
+                                \item Many concept frame contain only one word
                             \end{itemize}
                         \item<2-> Character vectors lead to less precise semantic representation
                         \item<3-> Features are complemented; combined features leads to improvement
@@ -329,8 +329,8 @@
                 \begin{column}[T]{.6\textwidth}
                     \only<2>{
                     \begin{block}{Precision \& Recall}
-                        $P=\frac{correct(opinion) \cap correct(polarity)}{proposed(opinioopinionn)}$\\
-                        $R=\frac{correct(opinion) \cap correct(polarity)}{gold(opinioopinionn)}$
+                        $P=\frac{correct(opinion) \cap correct(polarity)}{proposed(opinion)}$\\
+                        $R=\frac{correct(opinion) \cap correct(polarity)}{gold(opinion)}$
                     \end{block}
                     }
                     \begin{table}
