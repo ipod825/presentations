@@ -7,6 +7,7 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{CJKutf8}
 \usepackage{colortbl}
+\usepackage{hyperref}
 
 %%% Template Setting
 
@@ -21,6 +22,8 @@
 \author{Shih-Ming Wang and Lun-Wei Ku}
 \date[LREC 2016]{10th Language Resources and Evaluation Conference}
 \subject{Computer Science}
+
+\graphicspath{{img/}}
 
 \begin{document}
 \beamertemplatenavigationsymbolsempty
@@ -126,7 +129,7 @@
             \end{block}
             \pause
             \begin{figure}
-                \includegraphics[height=.5\textheight]{e-hownet.png}
+                \includegraphics[height=.5\textheight]{e-hownet}
             \end{figure}
             \note{created by Dong etc. in 2006}
         \end{frame}
@@ -149,7 +152,7 @@
                 \begin{itemize}
                     \item $P=\frac{correct(opinion) \cap correct(polarity)}{proposed(opinion)}$
                     \item $R=\frac{correct(opinion) \cap correct(polarity)}{gold(opinion)}$
-                    \item $F-score = \frac{2PR}{P+R}$
+                    \item $F\_score = \frac{2PR}{P+R}$
                 \end{itemize}
             \end{itemize}
         \end{block}
@@ -205,7 +208,7 @@
                                 \item opinion extraction  is more semantic-oriented
                                 \item Many concept frame contain only one word
                             \end{itemize}
-                        \item<2-> Character vectors lead to less precise semantic representation
+                        \item<2-> Character vectors lead to slightly worse performance
                         \item<3-> Features are complemented; combined features leads to improvement
                     \end{itemize}
                 \end{column}
@@ -244,14 +247,14 @@
                     \only<3>{
                         COP        & 0.686     & 1.000  & \cellcolor{green!50}0.814   \\ \hline
                         SSI        & 0.693     & 0.993  & \cellcolor{cyan!50}0.816   \\ \hline
-                        WV         & 0.784     & 0.936  & \cellcolor{blue!50}0.854   \\ \hline
-                        CV         & 0.765     & 0.919  & \cellcolor{blue!50}0.835   \\ \hline
+                        WV         & 0.784     & 0.936  & \cellcolor{blue!30}0.854   \\ \hline
+                        CV         & 0.765     & 0.919  & \cellcolor{blue!30}0.835   \\ \hline
                         COP+SSI    & 0.740     & 0.914  & \cellcolor{green}0.818   \\ \hline
                         COP+WV     & 0.785     & 0.933  & \cellcolor{green}0.853   \\ \hline
                         COP+CV     & 0.764     & 0.917  & \cellcolor{green}0.833   \\ \hline
                         SSI+WV     & 0.789     & 0.937  & \cellcolor{cyan}0.856   \\ \hline
                         SSI+CV     & 0.772     & 0.920  & \cellcolor{cyan}0.840   \\ \hline
-                        WV+CV      & 0.808     & 0.921  & \cellcolor{blue!80}0.861   \\ \hline
+                        WV+CV      & 0.808     & 0.921  & \cellcolor{blue!60}0.861   \\ \hline
                     }
                     \end{tabular}
                     \end{table}
@@ -379,10 +382,21 @@
         \end{itemize}
     \end{frame}
 
+    \begin{frame}{EmotionPush (Promotion)}
+
+        \begin{itemize}
+            \item Personal sentiment analysis
+            \item Recruiting people for experiment
+            \item Sign up: \url{http://tinyurl.com/EmotionPush}
+        \end{itemize}
+    \end{frame}
+
     \begin{frame}{}
         \begin{center}
-            \huge
-            Q \& A
+            \huge{Thank You}\\
+            \vspace{1cm}
+            \normalsize{Download ANTUSD @\href{http://academiasinicanlplab.github.io/}{NLPLab}}
         \end{center}
     \end{frame}
+
 \end{document}
