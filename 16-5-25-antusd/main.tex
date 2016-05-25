@@ -160,16 +160,17 @@
             \begin{block}{Extract single label for each word}
                 \begin{enumerate}
                     \item \textbf{NOT}: Count(Not)$>$0
-                    \item \textbf{NONOP}: Count(Non)$>$0  
-                    \item \textbf{POS}: Count(Pos)$>$0 and Count(Neg)=0  
-                    \item \textbf{NEG}: Count(Neg)$>$0 and Count(Pos)=0  
-                    \item \textbf{NEU}: Count(Pos)=0, Count(Neg)=0 and Count(Neu)$>$0  
+                    \item \textbf{NONOP}: Count(Non)$>$0
+                    \item \textbf{POS}: Count(Pos)$>$0 and Count(Neg)=0
+                    \item \textbf{NEG}: Count(Neg)$>$0 and Count(Pos)=0
+                    \item \textbf{NEU}: Count(Pos)=0, Count(Neg)=0 and Count(Neu)$>$0
                 \end{enumerate}
             \end{block}
             \pause
             \begin{itemize}
-                \item Neutral words are dropped since there are only 16 of them
-                \item Words not labeled are also dropped (e.g., Count(Pos)$>$0 and Count(Neg)$>$0)
+                \item \textbf{NOT} words are not used
+                \item \textbf{NEU} words are dropped since there are only 16 of them
+                % \item Words not labeled are also dropped (e.g., Count(Pos)$>$0 and Count(Neg)$>$0)
             \end{itemize}
         \end{frame}
 
@@ -192,6 +193,9 @@
                     \item Corpus: LDC2009T14 (Chinese news)
                     \item Word vectors % low coverage, high quality
                     \item Summation of char vectors % high coverage, low quality   
+                        \begin{itemize}
+                        \item Very high coverage rate
+                        \end{itemize}
                 \end{itemize}
             \end{block}
         \end{frame}
