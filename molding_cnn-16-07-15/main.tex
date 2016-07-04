@@ -1,0 +1,94 @@
+\documentclass[compress]{beamer}
+
+\mode<presentation>
+\usetheme{Singapore}
+\usecolortheme{rose}
+
+% \usepackage{amsmath,amsfonts,amssymb}
+% \usepackage{colortbl}
+% \usepackage{hyperref}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+
+
+%%% Template Setting
+
+%% Font
+\usefonttheme[onlylarge]{structuresmallcapsserif}
+\usefonttheme[onlysmall]{structurebold}
+\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+\setbeamertemplate{frametitle}[default][center]
+
+
+\title{Molding CNNs for text: non-linear, non-consecutive convolutions}
+\author{Tao Lei, Regina Barzilay, and Tommi Jaakkola}
+\institute{Presented by Shih-Ming Wang \\ NLPLab, Institute of Information Science, Academia Sinica}
+\date{07-5-2016}
+\subject{Computer Science}
+
+\graphicspath{{img/}}
+
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+
+\begin{frame}
+ \maketitle
+\end{frame}
+
+\begin{frame}
+ \frametitle{Outline}
+ \tableofcontents
+\end{frame}
+\section{Introduction}
+
+\section{Motivation}
+\begin{frame}{\secname}
+    \begin{itemize}
+        \item Deep learning \& Convolution neural network (CNN) have led to success in many NLP problems
+        \item Convolution operation is a \textbf{linear} mapping over \textbf{n-gram} vectors
+        \item Target: \textbf{non-linear} operation over \textbf{non-consecutive} n-grams (e.g., ``\underline{not} that \underline{good}'')
+    \end{itemize}
+\end{frame}
+
+\section{Background}
+\begin{frame}{\secname}
+    
+\end{frame}
+
+\section{Model Description}
+\subsection{Tensor-based Feature Mapping}
+\begin{frame}{\subsecname}
+    \begin{itemize}
+    \item Intuition: use product operation to remedy the insufficiency of linear operation
+    \item Consider 2-gram $(x_1, x_2)$ as example:
+    \end{itemize}
+    \begin{table}[t]
+        \centering
+        \label{compare}
+        \begin{tabular}{ccc}
+                                       & Linear                  & Product     \\ \hline
+        Dim($x$)                       & $1\times d$             & $1\times d$ \\ \hline
+        Dim(filter) $h\times2\times d$ & $h\times 2 \times d^2$ \\ \hline
+        Output                         & $1\times h$             & $h \times d^2$ \hline
+
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\subsection{Non-consecutive n-gram Features}
+\begin{frame}{\secname}
+    
+\end{frame}
+
+
+\section{Experiments}
+\begin{frame}{\secname}
+\end{frame}
+
+\section{Error Analysis}
+\begin{frame}{\secname}
+\end{frame}
+
+
+
+\end{document}
