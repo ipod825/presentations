@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import os
 import subprocess
-import sklearn
 
 def append_pdf(dirname):
     res = ''
