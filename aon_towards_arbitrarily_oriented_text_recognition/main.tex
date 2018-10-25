@@ -41,7 +41,7 @@
 \begin{frame}[allowframebreaks]{Previous Work}
     \begin{block}{Spatial Transformer Network Based Model}
         \begin{itemize}
-            \item The model learns to rectify input image, rotation, etc.
+            \item The model learns to rectify input image by learn to translate and rotate, etc.
             \item Hard to optimize transformation network without geometric groundtruth
             \item Requires tricks on initialisation of model weights to guarantee training convergence
         \end{itemize}
@@ -216,7 +216,7 @@
         \caption{Performance on irregular datasets.}
     \end{table}
     \begin{table}
-        \includegraphics[height=.78\textheight]{pfregular}
+        \includegraphics[height=.75\textheight]{pfregular}
         \caption{Performance on regular datasets.}
     \end{table}
 \end{frame}
