@@ -7,6 +7,9 @@
 \usepackage{caption}
 \usepackage{cancel}
 \usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\usepackage{hyperref}
 \captionsetup[table]{labelformat=empty}
 \newcommand{\expect}[1]{\mathbb{E} \left[ #1 \right]}
 \newcommand{\expects}[2]{\mathbb{E}_{#1} \left[ #2 \right]}
@@ -25,6 +28,53 @@
 \begin{frame}
     \maketitle
     \hypertarget{titlePage}{}
+\end{frame}
+
+\begin{frame}
+\frametitle{Authors}
+
+\begin{columns}
+    \begin{column}{.3\textwidth}
+        \includegraphics[width=\textwidth]{auth1} 
+    \end{column}
+    \begin{column}{.2\textwidth}
+        \tiny
+        \textbf{Mihaela Rosca} \\
+        Research Engineer \\
+        DeepMind \\
+    \end{column}
+    \begin{column}{.3\textwidth}
+        \includegraphics[width=\textwidth]{auth2} 
+    \end{column}
+    \begin{column}{.2\textwidth}
+        \tiny
+        \textbf{Balaji Lakshminarayanan} \\
+        Senior Research Scientist \\
+        DeepMind \\
+    \end{column}
+\end{columns}
+\vfill
+\begin{columns}
+    \begin{column}{.3\textwidth}
+        \includegraphics[width=\textwidth]{auth3} 
+    \end{column}
+    \begin{column}{.2\textwidth}
+        \tiny
+        \textbf{David Warde-Farley} \\
+        Senior Research Scientist \\
+        DeepMind \\
+    \end{column}
+    \begin{column}{.3\textwidth}
+        \includegraphics[width=\textwidth]{auth4} 
+    \end{column}
+    \begin{column}{.2\textwidth}
+        \tiny
+        \textbf{Shakir Mohamed} \\
+        Research Scientist \\
+        DeepMind \\
+    \end{column}
+\end{columns}
+
 \end{frame}
 
 \section{Motivation}
@@ -176,7 +226,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Choose of Loss}
+\begin{frame}[t]{Choice of Loss}
     \begin{itemize}
         \item When MLP is intractable, different training objective are adopted
         \item Most objectives are consistent with MLP given infinite data and model capacity
@@ -185,6 +235,7 @@
         \item VAE approximates MLP (minimizes KLD), leading to unreal sample
     \end{itemize}
     \includegraphics[height=0.4\textheight,width=\textwidth]{loss}
+    \tiny{Figures from \cite{theis2015note}}
 \end{frame}
 
 
@@ -260,19 +311,22 @@
     \framebreak
     \begin{itemize}
         \item $p_{\theta}(x)$ in $p_{\theta}(z|x)= \frac{p(z)p_{\theta}(x|z)}{p(x)} $ is usually intractable
-        \item Usually assume parametric form $q_{\eta}(z)$ and optimize $\eta$ so that $q_{\eta}(z)\rightarrow p(z|x)$
+        \item Usually assume parametric form $q_{\eta}(z)$ and optimize $\eta$ so that $q_{\eta}(z)\rightarrow p_\theta(z|x)$
         \item $q_\eta(z)$ usually has local parameters for each sample $x$. Alternatively, we can ``armortize'' it by modeling $q_\eta(z|x)$ with global parameters
     \end{itemize}
     \includegraphics[scale=0.5]{vae}
+    {
+        \tiny{Figures from \cite{blei2016variational}}
+    }
     \framebreak
 
     \begin{itemize}
         \item VAE models $q_{\eta}(z|x)$ with encoder $E_{\eta}$ and $p_{\theta}(x|z)$  with decoder $G_{\theta}$ 
         \item \textbf{Assumes} posterior $q_{\eta}(z|x_n) \sim \mathcal{N}(E_{\eta}(x_n), E_{\eta}(x_n) \mathbb{I})$
         \item \textbf{Assumes} likelihood $p_{\theta}(x_n|z) \sim \mathcal{N}(G_{\theta}(x_n), \mathbb{I})$
-        \item Train $\eta, \phi$ simultaneously to minimizes $ELBO_2$
+        \item Train $\eta, \theta$ simultaneously to minimizes $ELBO_2$
             \begin{align*}
-                \eta, \phi = \mathop{argmax}_{\eta, \phi} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
+                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
             \end{align*}
                 
         \item VAE use reparameterization trick to estimate $\nabla_\eta \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)}$
@@ -283,7 +337,7 @@
     \begin{itemize}
         \item This is the game that VAE played
             \begin{align*}
-                \eta, \phi = \mathop{argmax}_{\eta, \phi} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
+                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
             \end{align*}
         \item We need to be able to
             \begin{itemize}
@@ -383,6 +437,7 @@
 \section{Related Work}
 \begin{frame}[allowframebreaks]{Related Work}
     \includegraphics[scale=0.45]{relatedwork}
+    {\tiny{Figures from \cite{huang2018introvae}}}
     \begin{enumerate}[A]
         \item VAEGAN imposes a discriminator $(D_\phi)$ on the data space
         \item AAE imposes a discriminator $(C_\omega)$ on the latent space
@@ -425,6 +480,7 @@
 
 
 
-
+\bibliographystyle{apalike}
+\bibliography{main}
 
 \end{document}
