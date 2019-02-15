@@ -243,9 +243,9 @@
 \begin{frame}[allowframebreaks]{GAN}
         \begin{itemize}
             \item GAN estimates $ \frac{p^*(x)}{p_{\theta}(x)} $ with a discriminator $D_{\phi}$
-            \item The input to the discriminator follows $0.5 p^*(x) + 0.5p_{\theta}(x)$
+            \item The input to the discriminator follows $\hat{p}(x)=0.5 p^*(x) + 0.5p_{\theta}(x)$
                 \begin{align*}
-                    \frac{p^*(x)}{p_{\theta}(x)} = \frac{p_\phi(x|y=1)}{p_\phi(x|y=0)} = \frac{\cancel{p(x)}p_\phi(y=1|x)/\cancelto{0.5}{p(y=1)}}{\cancel{p(x)}p_\phi(y=0|x)/\cancelto{0.5}{p(y=0)}} = \frac{D_{\phi}(x)}{1-D_{\phi}(x)}   
+                    \frac{p^*(x)}{p_{\theta}(x)} = \frac{p_\phi(x|y=1)}{p_\phi(x|y=0)} = \frac{\cancel{\hat{p}(x)}p_\phi(y=1|x)/\cancelto{0.5}{p(y=1)}}{\cancel{\hat{p}(x)}p_\phi(y=0|x)/\cancelto{0.5}{p(y=0)}} = \frac{D_{\phi}(x)}{1-D_{\phi}(x)}   
                 \end{align*}
             \item The likelihood is $\prod_{i=1}^n D_{\phi}(x)^{y_i}(1-D_{\phi}(x))^{1-y_i}$, hence MLP for $\phi$ is
                 \begin{align*}
@@ -301,16 +301,16 @@
                 \item E-step: Fixing $p_{\theta}$, optimize ELBO w.r.t. $q_{\eta}(z)$
                     \begin{align*}
                         q_{\eta}(z) &  = \mathop{argmax}_{q_\eta(z)}\expects{q_{\eta}(z)}{ \ln \left(  \frac{p_{\theta}(x,z)}{q_{\eta}(z)} \right) } & (ELBO_1)\\
-                                    &  = \mathop{argmax}_{q_\eta(z)}\expects{q_{\eta}(z)}{ \ln \left(  \frac{p(x)p_{\theta}(z|x)}{q_{\eta}(z)} \right) } & \\
-                                    &  = \mathop{argmax}_{q_\eta(z)} \ln p(x) + \expects{q_{\eta}(z)}{ \ln \left(  \frac{p_{\theta}(z|x)}{q_{\eta}(z)} \right) } & \\
-                                    &  =  \mathop{argmax}_{q_\eta(z)} \cancel{\ln p(x)} - KL(q_{\eta}(z)\|p_{\theta}(z|x)) & \\ 
+                                    &  = \mathop{argmax}_{q_\eta(z)}\expects{q_{\eta}(z)}{ \ln \left(  \frac{p^*(x)p_{\theta}(z|x)}{q_{\eta}(z)} \right) } & \\
+                                    &  = \mathop{argmax}_{q_\eta(z)} \ln p^*(x) + \expects{q_{\eta}(z)}{ \ln \left(  \frac{p_{\theta}(z|x)}{q_{\eta}(z)} \right) } & \\
+                                    &  =  \mathop{argmax}_{q_\eta(z)} \cancel{\ln p^*(x)} - KL(q_{\eta}(z)\|p_{\theta}(z|x)) & \\ 
                                     & = p_{\theta}(z|x) & \\
                     \end{align*}
             \end{itemize}
     \end{itemize}
     \framebreak
     \begin{itemize}
-        \item $p_{\theta}(x)$ in $p_{\theta}(z|x)= \frac{p(z)p_{\theta}(x|z)}{p(x)} $ is usually intractable
+        \item $p_{\theta}(x)$ in $p_{\theta}(z|x)= \frac{p(z)p_{\theta}(x|z)}{p_\theta(x)} $ is usually intractable
         \item Usually assume parametric form $q_{\eta}(z)$ and optimize $\eta$ so that $q_{\eta}(z)\rightarrow p_\theta(z|x)$
         \item $q_\eta(z)$ usually has local parameters for each sample $x$. Alternatively, we can ``armortize'' it by modeling $q_\eta(z|x)$ with global parameters
     \end{itemize}
