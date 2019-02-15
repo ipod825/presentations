@@ -289,7 +289,7 @@
                                   & =  \ln \expects{q_{\eta}(z)}{ \frac{p(z)}{q_{\eta}(z)} p_{\theta}(x|z)}&  \\
                                   & \ge \expects{q_{\eta}(z)}{ \ln \left(  \frac{p(z)}{q_{\eta}(z)} p_{\theta}(x|z)\right) } & \text{(Jenson Inequality)}\\
                                   & = \expects{q_{\eta}(z)}{ \ln \left(  \frac{p_{\theta}(x,z)}{q_{\eta}(z)} \right) } & (ELBO_1)\\
-                                  & = \expects{q_{\eta}(z)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z)\|p(z)) & (ELBO_2)
+                                  & = \expects{q_{\eta}(z)}{\ln p_{\theta}(x|z)} - KL(q_{\eta}(z)\|p(z)) & (ELBO_2)
             \end{align*}
     \end{itemize}
     \framebreak
@@ -326,7 +326,7 @@
         \item \textbf{Assumes} likelihood $p_{\theta}(x_n|z) \sim \mathcal{N}(G_{\theta}(x_n), \mathbb{I})$
         \item Train $\eta, \theta$ simultaneously to minimizes $ELBO_2$
             \begin{align*}
-                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
+                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} - KL(q_{\eta}(z|x)\|p(z))
             \end{align*}
                 
         \item VAE use reparameterization trick to estimate $\nabla_\eta \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)}$
@@ -337,7 +337,7 @@
     \begin{itemize}
         \item This is the game that VAE played
             \begin{align*}
-                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} + KL(q_{\eta}(z|x)\|p(z))
+                \eta, \theta = \mathop{argmax}_{\eta, \theta} \expects{q_{\eta}(z|x)}{\ln p_{\theta}(x|z)} - KL(q_{\eta}(z|x)\|p(z))
             \end{align*}
         \item We need to be able to
             \begin{itemize}
