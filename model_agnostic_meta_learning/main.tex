@@ -44,7 +44,7 @@
         \end{column}
         \begin{column}{.2\textwidth}
             \tiny
-            \textbf{Mihaela Rosca} \\
+            \textbf{Chelsea Finn} \\
             Assistant Professor \\
             CS, Stanford University \\
         \end{column}
@@ -178,11 +178,11 @@
         Note that in meta-learner's update (using $\theta$ in place of $f_{\theta}$)
         \begin{align*}
              & \nabla_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta'_i) & \\
-            = &  \nabla_{\theta} \theta'_i \nabla \mathcal{L}_{\mathcal{T}_i}(\theta'_i) & \text{(chain rule)} \\
-            = & \nabla_{\theta} \left[\theta-\alpha\nabla_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta)\right] \nabla \mathcal{L}_{\mathcal{T}_i}(\theta'_i)  & \text{(task update)}\\
-            = & \left[ I -\alpha\nabla^2_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta)) \right] \nabla \mathcal{L}_{\mathcal{T}_i}(\theta'_i) &
+            = &  \nabla_{\theta} \theta'_i \nabla_{\theta'} \mathcal{L}_{\mathcal{T}_i}(\theta'_i) & \text{(chain rule)} \\
+            = & \nabla_{\theta} \left[\theta-\alpha\nabla_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta)\right] \nabla_{\theta'} \mathcal{L}_{\mathcal{T}_i}(\theta'_i)  & \text{(task update)}\\
+            = & \left[ I -\alpha\nabla^2_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta)) \right] \nabla_{\theta'} \mathcal{L}_{\mathcal{T}_i}(\theta'_i) &
         \end{align*}
-        we need to calculate the hessian-vector product $\nabla^2 \mathcal{L}_{\mathcal{T}_i}(\theta)\nabla \mathcal{L}_{\mathcal{T}_i}(\theta'_i)$, when omitted, $\nabla \mathcal{L}_{\mathcal{T}_i}(\theta'_i)$ is the first order approximation to the meta-learner's gradient $\nabla_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta'_i)$.
+        we need to calculate the hessian-vector product $\nabla^2 \mathcal{L}_{\mathcal{T}_i}(\theta)\nabla_{\theta'} \mathcal{L}_{\mathcal{T}_i}(\theta'_i)$, when omitted, $\nabla_{\theta'} \mathcal{L}_{\mathcal{T}_i}(\theta'_i)$ is the first order approximation to the meta-learner's gradient $\nabla_{\theta}\mathcal{L}_{\mathcal{T}_i}(\theta'_i)$.
     \end{block}
 
     \begin{enumerate}
